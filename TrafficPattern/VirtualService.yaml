@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: vs-mainpage-standard
+  namespace: toolkit
+spec:
+  gateways:
+    - istio-system/toolkit-gateway
+  hosts:
+    - '*'
+  http:
+    - match:
+        - uri:
+            prefix: /main-page
+        - uri:
+            prefix: /
+      name: main-page
+      route:
+        - destination:
+            host: main-page
+            port:
+              number: 8080
