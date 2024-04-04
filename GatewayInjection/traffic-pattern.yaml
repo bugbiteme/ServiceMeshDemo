@@ -1,0 +1,38 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: toolkit-gateway
+  namespace: toolkit
+spec:
+  selector:
+    istio: toolkitgateway
+  servers:
+    - hosts:
+        - toolkit.apps.cluster-2z7g7.dynamic.redhatworkshops.io
+      port:
+        name: http2
+        number: 80
+        protocol: HTTP
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: vs-mainpage-standard
+  namespace: toolkit
+spec:
+  gateways:
+    - toolkit/toolkit-gateway
+  hosts:
+    - '*'
+  http:
+    - match:
+        - uri:
+            prefix: /main-page
+        - uri:
+            prefix: /
+      name: main-page
+      route:
+        - destination:
+            host: main-page
+            port:
+              number: 8080

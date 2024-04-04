@@ -38,7 +38,7 @@ spec:
         sidecar.istio.io/inject: 'true'
     spec:
       containers:
-        - image: "quay.io/anattama/my-web-react-app:4bf3077fec74e0a02406204f09b43e9af8c8b8c6"
+        - image: "quay.io/anattama/my-web-react-app:a01537e0c76a59729ad2a969238048d44d2a52dc"
           imagePullPolicy: Always
           name: kube-info
           ports:

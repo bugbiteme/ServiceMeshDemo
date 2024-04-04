@@ -1,11 +1,11 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: vs-mainpage-standard
+  name: vs-mainpage-standard-1
   namespace: toolkit
 spec:
   gateways:
-    - istio-system/toolkit-gateway
+    - toolkit/toolkit-gateway-1
   hosts:
     - '*'
   http:

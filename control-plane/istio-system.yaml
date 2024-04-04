@@ -33,7 +33,7 @@ spec:
               cpu: 500m
       service: {}
     openshiftRoute:
-      enabled: false
+      enabled: true
   policy:
     type: Istiod
   profiles:
