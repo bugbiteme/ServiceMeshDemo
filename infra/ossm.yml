@@ -3,7 +3,7 @@ kind: Subscription
 metadata:
   labels:
     operators.coreos.com/servicemeshoperator.openshift-operators: ""
-  name: servicemesh-operator
+  name: servicemeshoperator
   namespace: openshift-operators
 spec:
   channel: stable
