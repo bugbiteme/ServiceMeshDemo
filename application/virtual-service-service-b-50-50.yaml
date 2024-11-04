@@ -12,10 +12,10 @@ spec:
         subset: v1
         port:
           number: 8080
-      weight: 100
+      weight: 50
     - destination:
         host: service-b
         subset: v2
         port:
           number: 8080
-      weight: 0
+      weight: 50
