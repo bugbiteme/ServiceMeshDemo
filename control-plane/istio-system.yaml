@@ -5,6 +5,8 @@ metadata:
     - maistra.io/istio-operator
   name: basic-control-plane
   namespace: istio-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
 spec:
   addons:
     grafana:
