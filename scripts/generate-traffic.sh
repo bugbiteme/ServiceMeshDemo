@@ -6,7 +6,11 @@ export SLEEP=1
 while true
 do 
   date
-  curl -s $GATEWAY/web/hello-service | jq
+  response=$(curl -s -w "%{http_code}" $GATEWAY/web/hello-service)
+  http_code="${response: -3}"  # Extracts the last 3 characters as the HTTP code
+  response_body="${response:0:-3}"  # Extracts the response body
+  echo "HTTP Code: $http_code"
+  echo "$response_body" | jq
   echo ""
   sleep $SLEEP
 done
