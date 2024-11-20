@@ -6,7 +6,7 @@ You can use the Red Hat Solution Pattern to get the base OSSM install (along wit
 
 [Solution Patterns: Connect, Secure and Protect with Red Hat Connectivity Link](https://www.solutionpatterns.io/soln-pattern-connectivity-link/solution-patter)
 
-## create Infra
+## create Infra (Kiali, Distributed Tracing)
 oc apply -k ./infra
 
 ## create controlplane
@@ -16,7 +16,8 @@ oc new-project toolkit
 oc apply -f ./control-plane
 
 ## create application
-oc apply -f ./application
+oc new-project rest-api-with-mesh
+oc apply -k ./application/kustomize/overlays/pod -n rest-api-with-mesh
 
 ## create traffic pattern
 oc apply -f ./TrafficPattern
