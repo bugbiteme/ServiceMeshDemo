@@ -1,4 +1,11 @@
 # Service Mesh Demo
+
+Built for OSSM 3.x (tested on 3.0)
+
+You can use the Red Hat Solution Pattern to get the base OSSM install (along with RHCL)
+
+[Solution Patterns: Connect, Secure and Protect with Red Hat Connectivity Link](https://www.solutionpatterns.io/soln-pattern-connectivity-link/solution-patter)
+
 ## create Infra
 oc apply -k ./infra
 
