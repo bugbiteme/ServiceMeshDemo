@@ -8,6 +8,7 @@ metadata:
     app.kubernetes.io/name: service-b
     app.kubernetes.io/part-of: app
   name: service-b
+  namespace: rest-api-with-mesh
 spec:
   internalTrafficPolicy: Cluster
   ipFamilies:
