@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: istio-cni
+---
+kind: IstioCNI
+apiVersion: sailoperator.io/v1alpha1
+metadata:
+  name: default
+spec:
+  namespace: istio-cni
+  version: v1.23.0

@@ -28,8 +28,6 @@ spec:
         app: web-front-end
         deployment: web-front-end
         version: "v1"
-      annotations:
-        sidecar.istio.io/inject: "true"
     spec:
       containers:
       - env:

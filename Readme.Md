@@ -16,8 +16,11 @@ oc new-project toolkit
 oc apply -f ./control-plane
 
 ## create application
+This uses `Kustomize` to deploy the application, including creating the namespace.
+
 oc new-project rest-api-with-mesh
 oc apply -k ./application/kustomize/overlays/pod -n rest-api-with-mesh
+oc apply -k ./application/kustomize/overlays/pod
 
 ## create traffic pattern
 oc apply -f ./TrafficPattern
