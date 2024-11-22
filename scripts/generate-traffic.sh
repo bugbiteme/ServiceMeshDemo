@@ -1,12 +1,13 @@
 #!/bin/bash
 
-export GATEWAY=$(oc get route istio-ingressgateway -n istio-system -o template --template '{{ .spec.host }}')
+export GATEWAY=$(oc get gateway hello-gateway -n ingress-gateway -o template --template='{{(index .status.addresses 0).value}}')
+
 export SLEEP=1
 
 while true
 do 
   date
-  curl -s $GATEWAY/web/hello-service | jq
+  curl -s $GATEWAY/hello-service | jq
   sleep $SLEEP
 done
 

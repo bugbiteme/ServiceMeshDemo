@@ -12,12 +12,12 @@ BYellow='\033[1;33m'      # Yellow
 #BCyan='\033[1;36m'        # Cyan
 #BWhite='\033[1;37m'       # White
 
-export GATEWAY=$(oc get route istio-ingressgateway -n istio-system -o template --template '{{ .spec.host }}')
+export GATEWAY=$(oc get gateway hello-gateway -n ingress-gateway -o template --template='{{(index .status.addresses 0).value}}')
 
 SLEEP=20
 V1_WEIGHT=100
 
-response=$(curl -s -w "%{http_code}" $GATEWAY/web/hello-service)
+response=$(curl -s -w "%{http_code}" $GATEWAY/hello-service)
 http_code="${response: -3}"
 echo $http_code
 
@@ -31,7 +31,7 @@ do
     kind: VirtualService
     metadata:
       name: service-b
-      namespace: hello-service
+      namespace: rest-api-with-mesh
     spec:
       hosts:
         - service-b
@@ -56,6 +56,6 @@ EOF
 
 done
 
-response=$(curl -s -w "%{http_code}" $GATEWAY/web/hello-service)
+response=$(curl -s -w "%{http_code}" $GATEWAY/hello-service)
 http_code="${response: -3}"
 echo $http_code
