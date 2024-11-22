@@ -5,7 +5,7 @@ data:
       enableUserWorkload: true
       listenLocal: false
       remoteWrite:
-      - url: "http://thanos-receive-router-monitoring.apps.cluster-zk5mh.zk5mh.sandbox554.opentlc.com:19291/api/v1/receive"
+      - url: "https://thanos-receive-router-monitoring.apps.cluster-zk5mh.zk5mh.sandbox554.opentlc.com/api/v1/receive"
         basicAuth:
           username:
             name: basic-auth-prom
