@@ -3,7 +3,7 @@ kind: Kustomization
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 resources:
-- namespaces.yml
-- jaeger.yml
+# - namespaces.yml
+# - jaeger.yml
 - kiali.yml
-- ossm.yml
+# - ossm.yml

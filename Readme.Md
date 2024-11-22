@@ -15,12 +15,38 @@ oc new-project toolkit
 
 oc apply -f ./control-plane
 
-## create application
-This uses `Kustomize` to deploy the application, including creating the namespace.
+## create istio-cni (needed for proxie containers)
+`oc apply -f istio`  
 
-oc new-project rest-api-with-mesh
-oc apply -k ./application/kustomize/overlays/pod -n rest-api-with-mesh
-oc apply -k ./application/kustomize/overlays/pod
+## create application
+This uses `Kustomize` to deploy the application, including creating the namespace.  
+  
+`oc apply -k ./application/kustomize/overlays/pod`  
+
+## create Gateway (Gateway API) + HTTPRoute  
+`oc apply -f gateway`  
+
+## Test gateway connection to app
+`sh ./scripts/test-api.sh `  
+
+```json
+{
+  "message": "Hello World from web-front-end"
+}
+{
+  "response": {
+    "message": "Hello World from service-b-v1"
+  }
+}
+```
+
+## Canary deployment
+run the scripts:  
+`scripts/generate-traffic.sh` - While loop that gets message from backend service via the front-end  
+  
+`scripts/canary-rollout.sh` - to simulate a canary roll out while traffic is live.  
+  
+You can see real time updates from the first script during the canary deployment (so have two terminals open for this)
 
 ## create traffic pattern
 oc apply -f ./TrafficPattern

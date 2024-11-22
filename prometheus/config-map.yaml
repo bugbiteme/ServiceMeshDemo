@@ -1,0 +1,20 @@
+apiVersion: v1
+data:
+  config.yaml: |
+    prometheus:
+      enableUserWorkload: true
+      listenLocal: false
+      remoteWrite:
+      - url: "http://thanos-receive-router-monitoring.apps.cluster-zk5mh.zk5mh.sandbox554.opentlc.com:19291/api/v1/receive"
+        basicAuth:
+          username:
+            name: basic-auth-prom
+            key: username
+          password:
+            name: basic-auth-prom
+            key: password
+kind: ConfigMap
+metadata:
+  name: user-workload-monitoring-config
+  namespace: openshift-user-workload-monitoring
+# - url: "https://thanos-receive-router-monitoring.apps.cluster-zk5mh.zk5mh.sandbox554.opentlc.com/api/v1/receive"
