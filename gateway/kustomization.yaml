@@ -3,7 +3,6 @@ kind: Kustomization
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 resources:
- - namespaces.yaml
- - kiali.yaml
- - tempo.yaml
- - ossm-3.yaml
+ - namespace.yaml
+ - hello-gateway.yaml
+ 

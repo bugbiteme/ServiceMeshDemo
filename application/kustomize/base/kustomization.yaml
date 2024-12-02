@@ -8,3 +8,5 @@ resources:
 - service-back-end.yaml
 - destination-rule-back-end.yaml
 - virtual-service-back-end.yaml
+- pod-monitor.yaml
+- hello-http-route.yaml

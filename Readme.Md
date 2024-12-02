@@ -1,31 +1,42 @@
 # Service Mesh Demo
+Uses `Gateway API` for ingress  
 
 Built for OSSM 3.x (tested on 3.0)
 
-You can use the Red Hat Solution Pattern to get the base OSSM install (along with RHCL)
+## Installation checklist [TODO]
+[ ] Gateway API
+[ ] OpenShift Service Mesh  
+[ ] Kiali  
+[ ] Distributed Tracing (Tempo)  
+[ ] Cert-Manager  
+[ ] Argo Rollouts  
+
+[Current installation documentation](https://docs.openshift.com/service-mesh/3.0.0tp1/)
+
+You can use the Red Hat Solution Pattern to get the base OSSM install (along with RHCL), but it might cause more headaches.
+
 
 [Solution Patterns: Connect, Secure and Protect with Red Hat Connectivity Link](https://www.solutionpatterns.io/soln-pattern-connectivity-link/solution-patter)
 
-## create Infra (Kiali, Distributed Tracing)
+## Enable Gateway API
+```bash
+oc get crd gateways.gateway.networking.k8s.io &> /dev/null ||  { oc kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v1.0.0" | oc apply -f -; }
+```
+
+## Install Infra Operators (Istio, Kiali, Distributed Tracing, Argo)
 oc apply -k ./infra
 
-## create controlplane
-oc new-project istio-system
-oc new-project toolkit
+## create Istio components
+oc apply -k ./istio
 
-oc apply -f ./control-plane
-
-## create istio-cni (needed for proxie containers)
-`oc apply -f istio`  
+## Create a shared gateway via Gatweway API
+oc apply -k ./gateway
 
 ## create application
-This uses `Kustomize` to deploy the application, including creating the namespace.  
+This uses `Kustomize` to deploy the application, including creating the namespace.    
   
-`oc apply -k ./application/kustomize/overlays/pod`  
-
-## create Gateway (Gateway API) + HTTPRoute  
-`oc apply -f gateway`  
-
+oc apply -k ./application/kustomize/overlays/pod  
+  
 ## Test gateway connection to app
 `sh ./scripts/test-api.sh `  
 

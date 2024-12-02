@@ -1,3 +1,4 @@
+# this may already be defined in the RHCL Solution Pattern
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:

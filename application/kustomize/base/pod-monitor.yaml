@@ -1,8 +1,10 @@
+# This is exactly as the example in the documentation 
+# https://docs.openshift.com/service-mesh/3.0.0tp1/observability/metrics/ossm-metrics-assembly.html
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
   name: istio-proxies-monitor
-  namespace: istio-system 
+  namespace: rest-api-with-mesh 
 spec:
   selector:
     matchExpressions:
