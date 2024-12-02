@@ -4,8 +4,8 @@ Uses `Gateway API` for ingress
 Built for OSSM 3.x (tested on 3.0)
 
 ## Installation checklist [TODO]
-[ ] Gateway API
-[ ] OpenShift Service Mesh  
+[X] Gateway API
+[X] OpenShift Service Mesh  
 [ ] Kiali  
 [ ] Distributed Tracing (Tempo)  
 [ ] Cert-Manager  
