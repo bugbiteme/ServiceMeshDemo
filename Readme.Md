@@ -6,7 +6,7 @@ Built for OSSM 3.x (tested on 3.0)
 ## Installation checklist [TODO]
 [X] Gateway API  
 [X] OpenShift Service Mesh  
-[ ] Kiali  
+[X] Kiali  
 [ ] Distributed Tracing (Tempo)  
 [ ] Cert-Manager  
 [ ] Argo Rollouts  
