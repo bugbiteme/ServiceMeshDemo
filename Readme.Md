@@ -13,11 +13,6 @@ Built for OSSM 3.x (tested on 3.0)
 
 [Current installation documentation](https://docs.openshift.com/service-mesh/3.0.0tp1/install/ossm-installing-openshift-service-mesh.html)
 
-You can use the Red Hat Solution Pattern to get the base OSSM install (along with RHCL), but it might cause more headaches.
-
-
-[Solution Patterns: Connect, Secure and Protect with Red Hat Connectivity Link](https://www.solutionpatterns.io/soln-pattern-connectivity-link/solution-patter)
-
 ## Enable Gateway API
 ```bash
 oc get crd gateways.gateway.networking.k8s.io &> /dev/null ||  { oc kustomize "github.com/kubernetes-sigs/gateway-api/config/crd?ref=v1.0.0" | oc apply -f -; }
@@ -127,3 +122,8 @@ curl http://toolkit-toolkit-gateway-1-684888c0ebb17f37-istio-system.apps.cluster
 
 ## Test with external traffic If OpenshiftRoute Enabled for Gateways in Control Plane
 curl http://toolkit.apps.cluster-2z7g7.dynamic.redhatworkshops.io/main-page
+
+You can use the Red Hat Solution Pattern to get the base OSSM install (along with RHCL), but it might cause more headaches.
+
+
+[Solution Patterns: Connect, Secure and Protect with Red Hat Connectivity Link](https://www.solutionpatterns.io/soln-pattern-connectivity-link/solution-patter)
