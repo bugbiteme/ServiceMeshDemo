@@ -37,6 +37,8 @@ spec:
         - name: SERVICE_REMOTE
           value: service-a
         image: quay.io/llevy/service-b:v1
+        ports:
+        - containerPort: 8080
         imagePullPolicy: Always
         name: service-b
         resources: {}

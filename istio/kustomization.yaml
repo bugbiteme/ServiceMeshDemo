@@ -4,9 +4,9 @@ kind: Kustomization
 resources:
 - istio.yaml 
 - istio-cni.yaml
-#- ingress-gateway
-#- istio-service-monitor.yaml
-#- istio-pod-monitor.yaml
+- istio-service-monitor.yaml
+- istio-pod-monitor.yaml
+#- kiali-crb.yaml
 #- kiali-instance.yaml
 #- ossm-console.yaml
 
