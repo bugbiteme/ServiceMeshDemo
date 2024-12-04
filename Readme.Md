@@ -100,17 +100,6 @@ You can also view Istio data from the OSSM Console via `OpenShift Web Console->S
 ## quick and dirty graphana stack (only run if wanted. Not necessary)
 kubectl apply -n istio-system -f https://raw.githubusercontent.com/istio/istio/refs/heads/master/samples/addons/grafana.yaml
 
-You need to configure Kiali to trust the self-signed certificate used by Prometheus.
-
-### Extract the CA certificate from Prometheus:
-
-oc get secret prometheus-user-workload-tls -n openshift-user-workload-monitoring -o jsonpath='{.data.tls\.crt}' | base64 -d > prometheus-ca.crt
-
-
-### Create a new ConfigMap in the istio-system namespace with the CA certificate:
-
-oc create configmap prometheus-ca-cert -n istio-system --from-file=ca.crt=prometheus-ca.crt
-
 
 ## Canary deployment
 run the scripts:  
@@ -120,6 +109,7 @@ run the scripts:
   
 You can see real time updates from the first script during the canary deployment (so have two terminals open for this)
 
+# Ignore everything below this for now
 ## create traffic pattern
 oc apply -f ./TrafficPattern
 
