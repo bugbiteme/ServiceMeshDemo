@@ -3,7 +3,12 @@ kind: Kustomization
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 resources:
- #- open-telemetry-collector.yaml
- #- open-telemetry-crb.yaml
+ - namespaces.yaml
+ - minio.yaml
+ - tempo.yaml
+ - route-tracing-ui.yaml
+ - opentelemetrycollector.yaml
+ - istioTelemetry.yaml
+
 
 

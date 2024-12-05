@@ -1,0 +1,21 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app.kubernetes.io/component: query-frontend
+    app.kubernetes.io/instance: sample
+    app.kubernetes.io/managed-by: tempo-operator
+    app.kubernetes.io/name: tempo
+  name: tracing-ui
+  namespace: tracing-system
+spec:
+  host: tracing-ui-tracing-system.apps.cluster-zcnj7.zcnj7.sandbox3022.opentlc.com
+  port:
+    targetPort: jaeger-ui
+  to:
+    kind: Service
+    name: tempo-sample-query-frontend
+    weight: 100
+  wildcardPolicy: None

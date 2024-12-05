@@ -32,7 +32,9 @@ This uses `Kustomize` to deploy the application, including creating the namespac
   
 oc apply -k ./application/kustomize/overlays/pod  
   
-## Test gateway connection to app
+## Test gateway connection to app 
+***Note*** It may take a few seconds/minutes to be available
+
 `sh ./scripts/test-api.sh `  
 
 ```json

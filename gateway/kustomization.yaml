@@ -5,4 +5,5 @@ commonAnnotations:
 resources:
  - namespace.yaml
  - hello-gateway.yaml
+ - pod-monitor.yaml
  
