@@ -3,5 +3,4 @@ kind: Namespace
 metadata:
   name: ingress-gateway
   labels:
-    istio-discovery: enabled
     istio-injection: enabled

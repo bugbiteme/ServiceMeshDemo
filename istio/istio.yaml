@@ -18,9 +18,14 @@ spec:
     type: InPlace
   values:
     meshConfig:
-      discoverySelectors:
-      - matchLabels:
-          istio-discovery: enabled
+      #discoverySelectors:
+      #- matchLabels:
+      #    istio-discovery: enabled
+      extensionProviders:
+        - name: otel
+          opentelemetry:
+            port: 4317
+            service: otel-collector.opentelemetrycollector.svc.cluster.local
     gateways:
       istio-ingressgateway:
         enabled: true
