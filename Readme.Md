@@ -3,6 +3,13 @@ Uses `Gateway API` for ingress
 
 Built for OSSM 3.x (tested on 3.0)
 
+***NOTE TO SELF***
+Update Kiali
+Need to have step to add URL for Jaeger
+
+Transfer procedures to here from 
+https://github.com/mkralik3/sail-operator/tree/quickstart
+
 ## Installation checklist [TODO]
 [X] Gateway API  
 [X] OpenShift Service Mesh  
